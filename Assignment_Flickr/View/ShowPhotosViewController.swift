@@ -68,7 +68,7 @@ class ShowPhotosViewController: UIViewController, UICollectionViewDelegate, UICo
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.collectionView {
             if scrollView.isAlmostAtBottom {
-                viewModel.fetchPhotos(searchText: searchBar.text!)
+                viewModel.fetchPhotos(searchText: searchBar.text ?? "")
             }
         }
     }
@@ -109,7 +109,7 @@ class ShowPhotosViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.pageNum = 0
-        viewModel.fetchPhotos(searchText: searchBar.text!)
+        viewModel.fetchPhotos(searchText: searchBar.text ?? "")
         searchBar.showsCancelButton = false
         searchBar.endEditing(true)
     }

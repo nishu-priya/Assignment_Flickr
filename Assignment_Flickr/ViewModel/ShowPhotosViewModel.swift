@@ -32,6 +32,7 @@ class ShowPhotosViewModel {
             if let response = response {
                 self.handlePhotoFetchResponseSuccess(response: response.photos.photo)
             } else {
+                self.isFetching = false
                 DispatchQueue.main.async {
                     self.photosFetchFailureHandler?()
                 }
